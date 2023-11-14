@@ -38,15 +38,16 @@
   
         let selected = document.querySelector(`#hotspot-${index+1}`);
 
-        // const imageElement= clone.querySelector(".image-hotspot");
-        // imageElement.src = infoBox.thumbnail;
+        const imageElement= clone.querySelector(".image-hotspot");
+        imageElement.src = infoBox.thumbnail;
   
         const titleElement= clone.querySelector(".title-hotspot");
         titleElement.textContent = infoBox.heading;
   
         const textElement = clone.querySelector(".p-hotspot");
         textElement.textContent = infoBox.description;
-  
+        
+        selected.appendChild(imageElement);
         selected.appendChild(titleElement);
         selected.appendChild(textElement);
   
