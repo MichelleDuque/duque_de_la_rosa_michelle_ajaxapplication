@@ -38,6 +38,7 @@
   
         let selected = document.querySelector(`#hotspot-${index+1}`);
 
+        // Src is added but image is not working
         const imageElement= clone.querySelector(".image-hotspot");
         imageElement.src = infoBox.thumbnail;
   
