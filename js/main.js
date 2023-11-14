@@ -37,6 +37,9 @@
         const clone = hotspotTemplate.content.cloneNode(true);
   
         let selected = document.querySelector(`#hotspot-${index+1}`);
+
+        // const imageElement= clone.querySelector(".image-hotspot");
+        // imageElement.src = infoBox.thumbnail;
   
         const titleElement= clone.querySelector(".title-hotspot");
         titleElement.textContent = infoBox.heading;
