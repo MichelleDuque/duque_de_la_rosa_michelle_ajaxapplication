@@ -8,14 +8,6 @@
   
     const materialTemplate = document.querySelector("#material-template");
     const materialList = document.querySelector("#material-list");
-  
-    //This information needs to be removed then pulled with an AJAX Call using the Fetch API
-    //this is the api url https://swiftpixel.com/earbud/api/infoboxes"
-  
-  
-      //This information needs to be removed then pulled with an AJAX Call using the Fetch API
-      //this is the api url https://swiftpixel.com/earbud/api/materials"
-  
       
   
     //functions
@@ -30,15 +22,15 @@
       fetch("https://swiftpixel.com/earbud/api/infoboxes")
       .then(response => response.json())
       .then( infoBoxes => {
-        console.log( infoBoxes);
+
   
       infoBoxes.forEach((infoBox, index) => {
+
   
         const clone = hotspotTemplate.content.cloneNode(true);
   
         let selected = document.querySelector(`#hotspot-${index+1}`);
 
-        // Src is added but image is not working
         const imageElement= clone.querySelector(".image-hotspot");
         imageElement.src = `images/${infoBox.thumbnail}`;
   
@@ -65,12 +57,10 @@
       fetch("https://swiftpixel.com/earbud/api/materials")
       .then(response => response.json())
       .then(material_list => {
-        // console.log(material_list);
   
         
         material_list.forEach(material => {
   
-        //Make a copy of the template
         const clone = materialTemplate.content.cloneNode(true);
   
           const materialHeading = clone.querySelector(".material-heading");
@@ -79,10 +69,7 @@
           const materialDescription = clone.querySelector(".material-description");
           materialDescription.textContent = material.description;
   
-  
-          //append the populated templated to the ul
           materialList.appendChild(clone);
-          console.log(clone);
       });
   
       material_list.innerHTML= "";   
