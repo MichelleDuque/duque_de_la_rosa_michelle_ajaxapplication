@@ -16,7 +16,7 @@
 
     const errorMessageBox = `<div class="error-box"><img src="images/error.png" class="error-image" alt="error photo"> <h2 class="title-error">Sorry, Page not found</h2></div>`
 
-    let spinner = `<img src="images/load.svg" alt="" class="spinner-img">`
+    let spinner = `<img src="images/load.svg" alt="loading image" class="spinner-img">`
 
 
 
