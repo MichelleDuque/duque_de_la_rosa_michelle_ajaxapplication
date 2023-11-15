@@ -173,4 +173,17 @@ model-viewer > #ar-prompt > img {
 
 .error-box {
   text-align: center;
+}
+
+.spinner-img {
+  animation: rotation 6s infinite linear;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }/*# sourceMappingURL=main.css.map */
