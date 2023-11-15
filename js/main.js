@@ -10,6 +10,9 @@
     const materialBox = document.querySelector("#box-materials");   
     const materialTemplate = document.querySelector("#material-template");
     const materialList = document.querySelector("#material-list");
+    const loadingbox = document.querySelector(".loading-box-1");
+    const loadingbox2 = document.querySelector(".loading-box-2");
+
 
     const errorMessageBox = `<div class="error-box"><img src="images/error.png" class="error-image" alt="error photo"> <h2 class="title-error">Sorry, Page not found</h2></div>`
 
@@ -27,6 +30,8 @@
     </path>
     </svg>`
 
+
+
       
     //functions
     function modelLoaded() {
@@ -35,9 +40,14 @@
       });
     }
 
+    function loadingSpinner(){
+      loadingbox.innerHTML = spinner;
+      loadingbox2.innerHTML = spinner;
+    }
+
   
     function loadInfoBoxes() {
-
+      loadingSpinner()
       fetch("https://swiftpixel.com/earbud/api/infoboxes")
       .then(response => response.json())
       .then( infoBoxes => {
@@ -45,7 +55,8 @@
   
       infoBoxes.forEach((infoBox, index) => {
         
-  
+        loadingbox2.classList.add("hidden");
+
         const clone = hotspotTemplate.content.cloneNode(true);
   
         let selected = document.querySelector(`#hotspot-${index+1}`);
@@ -77,14 +88,16 @@
     loadInfoBoxes();
   
     function loadMaterialInfo() {
+      loadingSpinner()
       fetch("https://swiftpixel.com/earbud/api/materials")
       .then(response => response.json())
       .then(material_list => {
   
         
         material_list.forEach(material => {
+
+        loadingbox.classList.add("hidden");
           
-  
         const clone = materialTemplate.content.cloneNode(true);
   
           const materialHeading = clone.querySelector(".material-heading");
