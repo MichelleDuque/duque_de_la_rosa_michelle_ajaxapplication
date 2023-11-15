@@ -62,18 +62,21 @@ model-viewer {
   position: absolute;
   top: 50%;
   width: max-content;
-  text-align: left;
+  text-align: center;
+  background-color: #333;
 }
 
 .HotspotAnnotation p {
-  color: #333;
+  color: #fff;
   line-height: 22px;
-  font-weight: 300;
+  font-weight: 200;
+  font-size: 12px;
 }
 
 .HotspotAnnotation h2 {
-  font-size: 18px;
-  margin-bottom: 5px;
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 4px;
 }
 
 .HotspotAnnotation img {
@@ -149,4 +152,20 @@ model-viewer[ar-status=session-started] > #ar-prompt {
 
 model-viewer > #ar-prompt > img {
   animation: circle 4s linear infinite;
+}
+
+.image-hotspot {
+  width: 100px;
+  border: 5px solid #fff;
+}
+
+#box-materials {
+  background-color: antiquewhite;
+  padding: 20px;
+}
+
+#box-materials h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 30px;
 }/*# sourceMappingURL=main.css.map */

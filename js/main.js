@@ -40,7 +40,7 @@
 
         // Src is added but image is not working
         const imageElement= clone.querySelector(".image-hotspot");
-        imageElement.src = infoBox.thumbnail;
+        imageElement.src = `images/${infoBox.thumbnail}`;
   
         const titleElement= clone.querySelector(".title-hotspot");
         titleElement.textContent = infoBox.heading;
@@ -97,6 +97,23 @@
     function showInfo() {
       let selected = document.querySelector(`#${this.slot}`);
       gsap.to(selected, 1, { autoAlpha: 1 });
+
+      gsap.fromTo('.image-hotspot', {
+        y: 30,
+        opacity: 0,
+      },
+      {
+      delay: 0.5, 
+      duration: 1, 
+      y: 0,
+      opacity: 1,
+      ease: 'power2.easeOut',
+      stagger: {
+        from: 'start', 
+        amount: 0.5, 
+      },
+    })
+
     }
   
     function hideInfo() {
