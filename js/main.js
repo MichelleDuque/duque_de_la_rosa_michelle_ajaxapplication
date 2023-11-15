@@ -5,27 +5,46 @@
     const hotspots = document.querySelectorAll(".Hotspot");
   
     const hotspotTemplate = document.querySelector("#hotspot-template");
+    const boxModels = document.querySelector("#box-models");
   
+    const materialBox = document.querySelector("#box-materials");   
     const materialTemplate = document.querySelector("#material-template");
     const materialList = document.querySelector("#material-list");
+
+    const errorMessageBox = `<div class="error-box"><img src="images/error.png" class="error-image" alt="error photo"> <h2 class="title-error">Sorry, Page not found</h2></div>`
+
+    let spinner =`<svg version="1.1" id="L9" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+    viewBox="0 0 100 100" enable-background="new 0 0 0 0" xml:space="preserve">
+    <path fill="#333" d="M73,50c0-12.7-10.3-23-23-23S27,37.3,27,50 M30.9,50c0-10.5,8.5-19.1,19.1-19.1S69.1,39.5,69.1,50">
+    <animateTransform
+    attributeName="transform"
+    attributeType="XML"
+    type="rotate"
+    dur="1s"
+    from="0 50 50"
+    to="360 50 50"
+    repeatCount="indefinite" />
+    </path>
+    </svg>`
+
       
-  
     //functions
     function modelLoaded() {
       hotspots.forEach(hotspot => {
         hotspot.style.display = "block";
       });
     }
+
   
     function loadInfoBoxes() {
-  
+
       fetch("https://swiftpixel.com/earbud/api/infoboxes")
       .then(response => response.json())
       .then( infoBoxes => {
 
   
       infoBoxes.forEach((infoBox, index) => {
-
+        
   
         const clone = hotspotTemplate.content.cloneNode(true);
   
@@ -48,7 +67,11 @@
       }); 
   
     })
-    .catch(error => console.error(error)); //catch and report any errors
+    .catch(error => {
+      boxModels.innerHTML = errorMessageBox;
+      console.error('There was an error!', error);
+  });
+
   }
   
     loadInfoBoxes();
@@ -60,6 +83,7 @@
   
         
         material_list.forEach(material => {
+          
   
         const clone = materialTemplate.content.cloneNode(true);
   
@@ -75,7 +99,11 @@
       material_list.innerHTML= "";   
   
       })
-      .catch(error => console.error(error)); //catch and report any errors
+      .catch(error => {
+        materialBox.innerHTML = errorMessageBox;
+        console.error('There was an error!', error);
+    });
+
     }
   
     loadMaterialInfo()
