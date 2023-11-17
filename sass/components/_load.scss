@@ -1,6 +1,16 @@
 .spinner-img{
     animation: rotation 6s infinite linear;
+    max-width: 700px;
   }
+
+
+.loading-box-2{
+  text-align: center;
+}
+
+.loading-box-1{
+  text-align: center;
+}
   
   @keyframes rotation {
     from {
