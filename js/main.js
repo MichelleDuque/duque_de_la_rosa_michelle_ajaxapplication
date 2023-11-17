@@ -11,12 +11,11 @@
     const materialTemplate = document.querySelector("#material-template");
     const materialList = document.querySelector("#material-list");
     const loadingbox = document.querySelector(".loading-box-1");
-    const loadingbox2 = document.querySelector(".loading-box-2");
 
 
     const errorMessageBox = `<div class="error-box"><img src="images/error.png" class="error-image" alt="error photo"> <h2 class="title-error">Sorry, Page not found</h2></div>`
 
-    let spinner = `<img src="images/load.svg" alt="loading image" class="spinner-img">`
+    let spinner = `<img src="images/loading.svg" alt="loading image" class="spinner-img">`
 
 
 
@@ -30,12 +29,11 @@
 
     function loadingSpinner(){
       loadingbox.innerHTML = spinner;
-      loadingbox2.innerHTML = spinner;
     }
 
-  
+
     function loadInfoBoxes() {
-      loadingSpinner()
+
       fetch("https://swiftpixel.com/earbud/api/infoboxes")
       .then(response => response.json())
       .then( infoBoxes => {
@@ -43,7 +41,6 @@
   
       infoBoxes.forEach((infoBox, index) => {
         
-        loadingbox2.classList.add("hidden");
 
         const clone = hotspotTemplate.content.cloneNode(true);
   
@@ -80,7 +77,7 @@
       fetch("https://swiftpixel.com/earbud/api/materials")
       .then(response => response.json())
       .then(material_list => {
-  
+      
         
         material_list.forEach(material => {
 
